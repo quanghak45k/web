@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/admin/login', [TestController::class, 'show']);
