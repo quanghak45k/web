@@ -14,6 +14,3 @@ use App\Http\Controllers\TestController;
 |
 */
 
-
-
-Route::get('/admin/login', [TestController::class, 'show']);
