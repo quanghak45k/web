@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="#" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{ asset('/assets/admin/logo/favicon.png') }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Admin</span>
     </a>
 
@@ -13,8 +13,8 @@
             <div class="image">
                 <img src="#" class="img-circle elevation-2" alt="">
             </div>
-            <div class="info">
-                <a href="#" class="d-block">Web Develop</a>
+            <div class="info text-center">
+                <h3><a href="#" class="d-block">Web Developer</a></h3>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i cclass="bi bi-menu-button"></i>
                         <p>
                             Menu
                             <i class="right fas fa-angle-left"></i>
@@ -45,19 +45,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User Management</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Profile</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>About</p>
                             </a>

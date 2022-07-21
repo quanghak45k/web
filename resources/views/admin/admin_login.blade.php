@@ -36,6 +36,8 @@
                     <!-- /.col -->
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
+                        <div class="text-center"><a href="#">Forgot password ?</a></div>
                     </div>
                     <!-- /.col -->
                 </div>
