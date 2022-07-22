@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
+use App\Http\Controllers\Admin\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/ForgetPassword', function (){
 });
 Route::post('/sendmail', [ForgotPasswordController::class, 'post'])->name('sendmail');
 
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'getPassword'])->name('reset.password');
+Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('update.password');
 
 Route::middleware('auth:admin')->group(function(){
     Route::get('/dashboard', [Homecontroller::class, 'index'])->name('dashboard');

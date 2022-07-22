@@ -12,7 +12,11 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Đăng Nhập Trang Quản Trị</p>
-
+            @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
             <form action=" {{route('admin.login')}} " method="post">
                 @csrf
                 @if ($errors->has('email'))
