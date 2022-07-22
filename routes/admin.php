@@ -15,6 +15,13 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 Route::match(['get','post'], '/login', [LoginController::class, 'login'])->name('admin.login');
+
+Route::get('/ForgetPassword', function (){
+    return view('admin.admin_forgot_password');
+});
+
+
+
 Route::middleware('auth:admin')->group(function(){
     Route::get('/dashboard', [Homecontroller::class, 'index'])->name('dashboard');
     Route::get('/logout', [Homecontroller::class, 'logout'])->name('admin.logout');
