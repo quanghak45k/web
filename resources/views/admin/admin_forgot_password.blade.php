@@ -3,7 +3,12 @@
 
 @section('content')
             <p class="login-box-msg">Reset Password</p>
-            <form action="#" method="post">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <form action="{{route('sendmail')}}" method="post">
                 @csrf
                 @if ($errors->has('email'))
                     <span class="text-danger">{{ $errors->first('email') }}</span>

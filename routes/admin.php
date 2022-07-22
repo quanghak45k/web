@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::match(['get','post'], '/login', [LoginController::class, 'login'])->name(
 Route::get('/ForgetPassword', function (){
     return view('admin.admin_forgot_password');
 });
-
+Route::post('/sendmail', [ForgotPasswordController::class, 'post'])->name('sendmail');
 
 
 Route::middleware('auth:admin')->group(function(){
