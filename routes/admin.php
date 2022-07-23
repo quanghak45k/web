@@ -36,6 +36,10 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('/create/user', function (){
         return view('admin.admin_create_user');})->name('create.user');
     Route::post('/store/user', [UserController::class, 'store'])->name('store.user');
+    Route::get('/show/user/{id}', [UserController::class, 'show'])->name('show.user');
+    Route::get('/edit/user/{id}', [UserController::class, 'edit'])->name('edit.user');
+    Route::post('/update/user/{id}', [UserController::class, 'update'])->name('update.user');
+    Route::get('/delete/user/{id}', [UserController::class, 'destroy'])->name('delete.user');
 
 });
 
