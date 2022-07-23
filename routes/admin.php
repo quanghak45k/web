@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\ResetPasswordController;
+use App\Http\Controllers\Admin\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::middleware('auth:admin')->group(function(){
 
     Route::get('/create/user', function (){
         return view('admin.admin_create_user');})->name('create.user');
+    Route::post('/store/user', [UserController::class, 'store'])->name('store.user');
 
 });
 

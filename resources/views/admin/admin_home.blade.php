@@ -1,5 +1,10 @@
 @extends('admin.layout.admin_home_main')
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
             <div class="container-fluid">
                 <div class="table-responsive">
                     <div class="table-wrapper">
@@ -17,7 +22,7 @@
                                 </div>
                                 <div class=" col-sm-4 ">
                                     <div class="pull-right">
-                                        <b style="margin-bottom: 0px;">Add User:  </b><a class="btn btn-primary" href="#" title="Create a user"> <i class="fas fa-plus-circle"></i>
+                                        <b style="margin-bottom: 0px;">Add User:  </b><a class="btn btn-primary" href="{{route('create.user')}}" title="Create a user"> <i class="fas fa-plus-circle"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -35,6 +40,19 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td scope="row">{{ ++$i }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ date_format($user->created_at, 'jS M Y') }}</td>
+                                    <td>
+                                        <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             <tr>
                                 <td>1</td>
                                 <td>User name</td>
@@ -48,6 +66,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        {!! $users->links() !!}
                         <div class="clearfix">
                             <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                             <ul class="pagination">

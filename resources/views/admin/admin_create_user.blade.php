@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="col-xs-4 col-sm-4 col-md-4 table" style="background-color: #007bff0a; border-color: lightgrey">
-                            <form action="#" method="POST" >
+                            <form action="{{route('store.user')}}" method="POST" >
                                 @csrf
                                 <div class="form-group">
                                     <strong>Name:</strong>
