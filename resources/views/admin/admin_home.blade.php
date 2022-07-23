@@ -14,76 +14,76 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
-                    </div><!-- /.col -->
-
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+        <div class="container-fluid row mb-2 col-sm-6 m-0 content-header">
+            <h1 class="m-0">Dashboard</h1>
         </div>
         <!-- /.content-header -->
-
-        <!-- Main content -->
         <section class="content">
+
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-4"><h2> <b>User list:</b></h2></div>
+                                <div class="col-sm-4 mx-auto d-flex">
+                                    <div class=" d-flex  ">
+                                        <i class="material-icons">&#xE8B6;</i>
+                                        <input type="text" class="form-control" placeholder="Search&hellip;">
+                                        <button class="btn btn-primary" type="button" title="Refresh page">
+                                            <span class="fas fa-sync-alt"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 ">
+                                    <div class="pull-right">
+                                        <b style="margin-bottom: 0px;">Add User:  </b><a class="btn btn-primary" href="#" title="Create a user"> <i class="fas fa-plus-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
 
-                    <!-- ./col -->
-                </div>
-                <!-- /.row -->
-                <!-- Main row -->
-                <div class="row">
-                    <!-- Left col -->
-                    <section class="col-lg-12 ">
-                        <!-- Custom tabs (Charts with tabs)-->
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    User List:
-                                </h3>
-                                <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Show</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Hide</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="tab-content p-0">
-                                    <!-- Morris chart - Sales -->
-                                    <div class="chart tab-pane active" id="revenue-chart"
-                                         style="position: relative; height: 300px;">
-                                        <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                    </div>
-                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                        <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                                    </div>
-                                </div>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
-                        <!-- /.card -->
-
-                        <!-- DIRECT CHAT -->
-
-                        <!-- /.card -->
-                    </section>
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-
-                    <!-- right col -->
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name <i class="fa fa-sort"></i></th>
+                                <th>Email</th>
+                                <th>Created Date <i class="fa fa-sort"></i></th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>User name</td>
+                                <td>user@gmail.com</td>
+                                <td>30-july-2022</td>
+                                <td>
+                                    <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                    <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                    <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix">
+                            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                            <ul class="pagination">
+                                <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

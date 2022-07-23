@@ -15,7 +15,7 @@ class LoginController extends Controller
             return redirect(RouteServiceProvider::admin);
         }
         if ($request->getMethod() == 'GET'){
-            return view('admin.admin_login');
+            return view('admin.auth.admin_login');
         }
         $this->validate($request, [
             'email' => 'required',

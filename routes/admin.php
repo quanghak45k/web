@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\ResetPasswordController;
 Route::match(['get','post'], '/login', [LoginController::class, 'login'])->name('admin.login');
 
 Route::get('/ForgetPassword', function (){
-    return view('admin.admin_forgot_password');
+    return view('admin.auth.admin_forgot_password');
 });
 Route::post('/sendmail', [ForgotPasswordController::class, 'post'])->name('sendmail');
 
