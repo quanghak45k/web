@@ -9,10 +9,26 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $users = User::latest()->paginate(5);
-        return view('admin.admin_home', compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $users = User::where([
+            ['name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($term = $request->term)) {
+                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+                }
+            }]
+        ])
+            ->orderBy("id", "desc")
+            ->paginate(2);
+        // $projects = Project::latest()->paginate(5);
+
+        return view('admin.admin_home', compact('users'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+//        $users = User::latest()->paginate(5);
+//        return view('admin.admin_home', compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
 
 
     }

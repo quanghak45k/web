@@ -21,17 +21,18 @@
 
                     </div>
                 </div>
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Name <i class="fa fa-sort"></i></th>
-                        <th>Email</th>
-                        <th>Created Date <i class="fa fa-sort"></i></th>
+                <div>
+                    <table class="table table-striped table-hover table-bordered text-center" style="width: 50%; margin-left: auto; margin-right: auto">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Created Date</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+                        </tr>
+                        </thead>
+                        <tbody>
 
                         <tr>
                             <td>1</td>
@@ -40,21 +41,10 @@
                             <td>{{ date_format($user->created_at, 'jS M Y') }}</td>
                         </tr>
 
-                    </tbody>
-                </table>
-
-                <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
     </div>
