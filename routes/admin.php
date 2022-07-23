@@ -26,9 +26,14 @@ Route::post('/sendmail', [ForgotPasswordController::class, 'post'])->name('sendm
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'getPassword'])->name('reset.password');
 Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name('update.password');
 
+
+
 Route::middleware('auth:admin')->group(function(){
     Route::get('/dashboard', [Homecontroller::class, 'index'])->name('dashboard');
     Route::get('/logout', [Homecontroller::class, 'logout'])->name('admin.logout');
+
+    Route::get('/create/user', function (){
+        return view('admin.admin_create_user');})->name('create.user');
 
 });
 
