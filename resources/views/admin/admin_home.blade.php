@@ -71,7 +71,8 @@
                                     <td>
                                         <a href="{{route('show.user', $user->id)}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a href="{{route('edit.user', $user->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a href="{{route('delete.user', $user->id)}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        <a type="button" data-attr="{{route('delete.user', $user->id)}}" data-target="#smallModal" class="delete" title="Delete" data-toggle="modal" id="smallButton">
+                                            <i class="material-icons">&#xE872;</i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -79,22 +80,68 @@
                         </table>
 
                         {!! $users->links('pagination.user-paginate') !!}
-{{--                        <div class="clearfix">--}}
-{{--                            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>--}}
-{{--                            <ul class="pagination">--}}
-{{--                                <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>--}}
-{{--                                <li class="page-item"><a href="#" class="page-link">1</a></li>--}}
-{{--                                <li class="page-item"><a href="#" class="page-link">2</a></li>--}}
-{{--                                <li class="page-item active"><a href="#" class="page-link">3</a></li>--}}
-{{--                                <li class="page-item"><a href="#" class="page-link">4</a></li>--}}
-{{--                                <li class="page-item"><a href="#" class="page-link">5</a></li>--}}
-{{--                                <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
 
             </div>
+    <!-- small modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="smallBody">
+                    <div>
+                        <form action="{{ route('delete.user', $user->id) }}" method="post">
+                            <div class="modal-body">
+                                @csrf
+
+                                <h5 class="text-center">Are you sure you want to delete Username: {{ $user->name }} ?</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-danger">Yes, Delete this User</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // display a modal (small modal)
+
+        $(document).on('click', '#smallButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href
+                , beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#smallModal').modal("show");
+                    $('#smallBody').html(result).show();
+                }
+                , complete: function() {
+                    $('#loader').hide();
+                }
+                , error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                }
+                , timeout: 8000
+            })
+        });
+    </script>
 @endsection
 
 
