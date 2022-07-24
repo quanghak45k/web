@@ -39,7 +39,7 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('/show/user/{id}', [UserController::class, 'show'])->name('show.user');
     Route::get('/edit/user/{id}', [UserController::class, 'edit'])->name('edit.user');
     Route::post('/update/user/{id}', [UserController::class, 'update'])->name('update.user');
-    Route::post('/delete/user/{id}', [UserController::class, 'destroy'])->name('delete.user');
+    Route::post('/delete/user/', [UserController::class, 'destroy'])->name('delete.user');
 
 });
 

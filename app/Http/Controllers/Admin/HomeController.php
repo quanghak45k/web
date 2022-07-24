@@ -20,7 +20,7 @@ class HomeController extends Controller
             }]
         ])
             ->orderBy("id", "desc")
-            ->paginate(2);
+            ->paginate(3);
         // $projects = Project::latest()->paginate(5);
 
         return view('admin.admin_home', compact('users'))

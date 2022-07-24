@@ -40,6 +40,8 @@
 <!-- ./wrapper -->
 
 @include('admin.layout.footer')
+
+@yield('script')
 </body>
 </html>
 

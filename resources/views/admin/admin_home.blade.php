@@ -71,8 +71,13 @@
                                     <td>
                                         <a href="{{route('show.user', $user->id)}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                                         <a href="{{route('edit.user', $user->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a type="button" data-attr="{{route('delete.user', $user->id)}}" data-target="#smallModal" class="delete" title="Delete" data-toggle="modal" id="smallButton">
-                                            <i class="material-icons">&#xE872;</i></a>
+
+{{--                                        <a data-toggle="modal" id="smallButton" data-target="#smallModal"--}}
+{{--                                           data-attr="{{ route('delete.user', $user->id) }}" title="Delete Project" >--}}
+{{--                                            <i class="material-icons">&#xE872;</i></a>--}}
+                                        <button type="button" class="btn-danger  deleteUser" id="deleteUser" value="{{$user->id}}" data-toggle="modal" >
+                                            <i class="material-icons">&#xE872;</i></button>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -84,64 +89,49 @@
                 </div>
 
             </div>
-    <!-- small modal -->
-    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h5 class="modal-title" >ban muon xoa cai id nay</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="smallBody">
-                    <div>
-                        <form action="{{ route('delete.user', $user->id) }}" method="post">
-                            <div class="modal-body">
-                                @csrf
+                <form action="{{route('delete.user')}}" method="post">
+                    @csrf
+                <div class="modal-body">
 
-                                <h5 class="text-center">Are you sure you want to delete Username: {{ $user->name }} ?</h5>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-danger">Yes, Delete this User</button>
-                            </div>
-                        </form>
-                    </div>
+                        <input type="hidden" name="id" id="user_id">
+
+
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </div>
+                </form>
             </div>
         </div>
-    </div>
+    </div>>
 
 
 
+@endsection
+
+@section('script')
     <script>
-        // display a modal (small modal)
+        $(document).ready(function () {
+            $('.deleteUser').click(function (e) {
+                e.preventDefault();
 
-        $(document).on('click', '#smallButton', function(event) {
-            event.preventDefault();
-            let href = $(this).attr('data-attr');
-            $.ajax({
-                url: href
-                , beforeSend: function() {
-                    $('#loader').show();
-                },
-                // return the result
-                success: function(result) {
-                    $('#smallModal').modal("show");
-                    $('#smallBody').html(result).show();
-                }
-                , complete: function() {
-                    $('#loader').hide();
-                }
-                , error: function(jqXHR, testStatus, error) {
-                    console.log(error);
-                    alert("Page " + href + " cannot open. Error:" + error);
-                    $('#loader').hide();
-                }
-                , timeout: 8000
-            })
+                var user_id = $(this).val();
+                $('#user_id').val(user_id);
+                $('#deleteModal').modal('show');
+
+            });
+
         });
     </script>
 @endsection
-
-

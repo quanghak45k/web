@@ -69,11 +69,10 @@ class UserController extends Controller
         return redirect()->route('dashboard')
             ->with('success', 'User updated successfully.');
     }
-    public function delete(){
 
-    }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $id = $request->input('id');
         $user = User::find($id);
             $user->delete();
 
