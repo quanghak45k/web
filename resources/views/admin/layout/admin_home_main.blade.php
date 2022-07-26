@@ -13,11 +13,13 @@
 @include('admin.layout.silebar')
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="container-fluid row mb-2 col-sm-6 m-0 content-header">
-            <h1 class="m-0">Dashboard</h1>
-        </div>
-        <!-- /.content-header -->
+
+            <section class="content-header">
+                @yield('content-header')
+
+            </section>
+
+
         <section class="content">
             @yield('content')
         </section>

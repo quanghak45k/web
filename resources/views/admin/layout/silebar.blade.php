@@ -18,51 +18,28 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
+                <li class="nav-item ">
                     <a href="#" class="nav-link active">
-                        <i cclass="bi bi-menu-button"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                         <p>
-                            Menu
-                            <i class="right fas fa-angle-left"></i>
+                            User
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>User Management</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Profile</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>About</p>
-                            </a>
-                        </li>
-                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                        <p>
+                            Admin Profile
+                        </p>
+                    </a>
                 </li>
 
             </ul>
