@@ -9,12 +9,20 @@
 
 
 @include('admin.layout.navbar')
+{{--    <section>--}}
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row">--}}
+{{--                <h1>dsad</h1>--}}
+{{--            </div>--}}
+
+{{--        </div>--}}
+{{--    </section>--}}
 
 @include('admin.layout.silebar')
 <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper ">
 
-            <section class="content-header">
+            <section class="content-header" style="margin-top: 50px">
                 @yield('content-header')
 
             </section>

@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top overflow-hidden position-fixed" style="padding-top: 10px; padding-bottom: 10px">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">

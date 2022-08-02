@@ -16,11 +16,22 @@ class UserController extends Controller
         return view('admin.admin_home', compact('users'));
     }
     public function store(Request $request){
-        $request->validate([
+
+        $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
-        ]);
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password|min:6',
+        ],
+            [
+                'name.required' => '* Username is required',
+                'email.required' => '* Email is required',
+                'email.unique' => '* Email is unique',
+                'password.required' => '* Password is required',
+                'password.confirmed' => '* please confirm password',
+                'password.min' => '* Password is require minimum 6 characters',
+
+            ]);
 
         $userData = [
             'name' => $request->name,
@@ -38,34 +49,36 @@ class UserController extends Controller
     public function show($id)
     {
 
-
-        return view('admin.admin_show_user', [
-            'user' => User::findOrFail($id)
-        ]);
+        $user = User::find($id);
+        return view('admin.admin_show_user', compact('user'));
     }
 
     public function edit($id)
     {
-        return view('admin.admin_edit_user', [
-            'user' => User::findOrFail($id)
-        ]);
+
+        $user = User::find($id);
+
+        return view('admin.admin_edit_user', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'nullable|min:8',
         ]);
-
-            $user =User::find($id);
-
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-            $user->update();
-
+        $user=User::find($id);
+        if ($request->get('password') == '') {
+            $user->update($request->except('password'));
+        } else {
+            $userData = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ];
+            $user->update($userData);
+        }
         return redirect()->route('dashboard')
             ->with('success', 'User updated successfully.');
     }

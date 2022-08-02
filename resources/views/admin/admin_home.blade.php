@@ -58,6 +58,8 @@
                                 <th>No</th>
                                 <th>User name</th>
                                 <th>Email</th>
+                                <th>Verified date</th>
+                                <th>Active</th>
                                 <th>Created date</th>
                                 <th>Action</th>
                             </tr>
@@ -68,6 +70,8 @@
                                     <td scope="row">{{ ++$i }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->email_verified_at }}</td>
+                                    <td>{{ $user->active }}</td>
                                     <td>{{ date_format($user->created_at, 'jS M Y') }}</td>
                                     <td>
                                         <a href="{{route('show.user', $user->id)}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
@@ -88,14 +92,14 @@
         </div>
 
     </div>
-{{--    {!! $users->links('pagination.user-paginate') !!}--}}
+    {!! $users->links('pagination.user-paginate') !!}
 
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" >ban muon xoa cai id nay</h5>
+                    <h3 class="modal-title" ><b>Confirmation</b></h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -104,6 +108,7 @@
                     @csrf
                 <div class="modal-body">
                         <input type="hidden" name="id" id="user_id">
+                        <h3>Are you sure to delete this username?</h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -112,7 +117,7 @@
                 </form>
             </div>
         </div>
-    </div>>
+    </div>
 @endsection
 
 @section('script')
