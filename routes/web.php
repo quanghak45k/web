@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +13,11 @@ use App\Http\Controllers\TestController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function (){
+    return view('user.home');
+})->name('home');
 
+Route::get('/login', [UserController::class, 'index'])->name('user.login');
+
+Route::get('/user/register', [UserController::class, 'register'])->name('user.register');
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
