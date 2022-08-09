@@ -51,12 +51,12 @@
                         <div class="footer-head">
                             <h4>Fan Page</h4>
                             <div class="flicker-img">
-                                <a href="#"><img src="assets/img/portfolio/1.jpg" alt=""></a>
-                                <a href="#"><img src="assets/img/portfolio/2.jpg" alt=""></a>
-                                <a href="#"><img src="assets/img/portfolio/3.jpg" alt=""></a>
-                                <a href="#"><img src="assets/img/portfolio/4.jpg" alt=""></a>
-                                <a href="#"><img src="assets/img/portfolio/5.jpg" alt=""></a>
-                                <a href="#"><img src="assets/img/portfolio/6.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/1.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/2.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/3.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/4.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/5.jpg" alt=""></a>
+                                <a href="#"><img src="/assets/img/portfolio/6.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -82,15 +82,17 @@
     </div>
 </footer><!-- End  Footer -->
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-
+<script src="{{asset('/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{asset('/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('/assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="{{asset('/assets/js/main.js')}}"></script>
+
+

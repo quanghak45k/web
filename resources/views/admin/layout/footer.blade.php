@@ -32,6 +32,8 @@
 {{--<script src="{{ asset('/assets/admin/dist/js/demo.js') }}"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('/assets/admin/dist/js/pages/dashboard.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script>
     function randomPassword(length) {
         var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
@@ -57,7 +59,7 @@
     });
 
 
-</script>
+
 
 
 

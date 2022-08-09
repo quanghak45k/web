@@ -26,7 +26,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="#" class="nav-link active">
+                    <a href="{{route('dashboard')}}" class="nav-link {{ Request::is('admin/dashboard*') ? 'active' : '' }}">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <p>
                             User
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.profile')}}" class="nav-link {{ Request::is('admin/profile') ? 'active' : '' }}">
                         <i class="fa fa-id-card-o" aria-hidden="true"></i>
                         <p>
                             Admin Profile

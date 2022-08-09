@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use function Symfony\Component\Mime\Header\has;
 
 
 class UserController extends Controller
@@ -63,20 +64,49 @@ class UserController extends Controller
 
     public function update(Request $request,$id)
     {
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'nullable|min:8',
+            'active' => 'nullable',
         ]);
+
         $user=User::find($id);
         if ($request->get('password') == '') {
-            $user->update($request->except('password'));
+            if ($request->has('active')) {
+                $userData = [
+                    'name' => $request->name,
+                    'email' => $request->email,
+
+                    'active' => $request->active,
+                ];
+            }else {
+                $userData = [
+                    'name' => $request->name,
+                    'email' => $request->email,
+
+                    'active' => 0,
+                ];
+            }
+            $user->update($userData);
         } else {
-            $userData = [
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ];
+            if ($request->has('active')) {
+                $userData = [
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'active' => $request->active,
+                ];
+            }else {
+                $userData = [
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+                    'active' => 0,
+                ];
+            }
+
             $user->update($userData);
         }
         return redirect()->route('dashboard')

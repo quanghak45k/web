@@ -70,8 +70,12 @@
                                     <td scope="row">{{ ++$i }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->email_verified_at }}</td>
-                                    <td>{{ $user->active }}</td>
+                                    <td>{{ $user->is_email_verified }}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input " type="checkbox" name="active"  value="{{$user->id}}" id="userActive" {{($user->active)?'checked' : ''}} disabled>
+                                        </div>
+                                    </td>
                                     <td>{{ date_format($user->created_at, 'jS M Y') }}</td>
                                     <td>
                                         <a href="{{route('show.user', $user->id)}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>

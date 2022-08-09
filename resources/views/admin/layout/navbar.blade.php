@@ -17,7 +17,7 @@
             <div class="nav-item dropdown">
                 <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="#" class="avatar" alt=""> Admin <b class="caret"></b></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+                    <a href="{{route('admin.profile')}}" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
                     <div class="dropdown-divider"></div>
                     <a href="{{route('admin.logout')}}" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
                 </div>

@@ -16,7 +16,17 @@
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 <li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="{{route('user.login')}}">Login</a></li>
+                        <li>
+                            @if(\Illuminate\Support\Facades\Auth::check())
+                                <a href="{{route('user.logout')}}" >Logout</a>
+                            @else
+                                <a href="{{route('user.login')}}" >Login</a>
+                            @endif
+
+
+
+
+                            </li>
                         <li disabled><a href="#">Change Password</a></li>
                         <li disabled><a href="#">Profile</a></li>
                     </ul>
@@ -28,3 +38,5 @@
 
     </div>
 </header><!-- End Header -->
+
+

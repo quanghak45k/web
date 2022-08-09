@@ -15,7 +15,7 @@ class LoginController extends Controller
             return redirect(RouteServiceProvider::admin);
         }
         if ($request->getMethod() == 'GET'){
-            return view('admin.auth.admin_login');
+            return view('admin.auth.admin_login', ['title'=> 'Admin Login']);
         }
         $this->validate($request, [
             'email' => 'required',
@@ -29,9 +29,9 @@ class LoginController extends Controller
 
        $kiem_tra = $request->only(['email', 'password']);
         if(Auth::guard('admin')->attempt($kiem_tra)){
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard', ['title'=> 'Admin Login']);
         }else{
-            return redirect()->back()->withInput($request->only('email', 'remember'));
+            return redirect()->back()->withInput($request->only('email', 'remember'))->with('message', 'Email or password incorrect.');
         }
 
     }

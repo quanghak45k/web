@@ -32,14 +32,16 @@ Route::post('/reset-password', [ResetPasswordController::class, 'update'])->name
 Route::middleware('auth:admin')->group(function(){
     Route::get('/dashboard', [Homecontroller::class, 'index'])->name('dashboard');
     Route::get('/logout', [Homecontroller::class, 'logout'])->name('admin.logout');
+    Route::get('/profile', [Homecontroller::class, 'profile'])->name('admin.profile');
+    Route::post('/update', [Homecontroller::class, 'update'])->name('admin.update');
 
-    Route::get('/create/user', function (){
+    Route::get('/dashboard/create/user', function (){
         return view('admin.admin_create_user');})->name('create.user');
-    Route::post('/store/user', [UserController::class, 'store'])->name('store.user');
-    Route::get('/show/user/{id}', [UserController::class, 'show'])->name('show.user');
-    Route::get('/edit/user/{id}', [UserController::class, 'edit'])->name('edit.user');
-    Route::post('/update/user/{id}', [UserController::class, 'update'])->name('update.user');
-    Route::post('/delete/user/', [UserController::class, 'destroy'])->name('delete.user');
+    Route::post('/dashboard/store/user', [UserController::class, 'store'])->name('store.user');
+    Route::get('/dashboard/show/user/{id}', [UserController::class, 'show'])->name('show.user');
+    Route::get('/dashboard/edit/user/{id}', [UserController::class, 'edit'])->name('edit.user');
+    Route::post('/dashboard/update/user/{id}', [UserController::class, 'update'])->name('update.user');
+    Route::post('/dashboard/delete/user/', [UserController::class, 'destroy'])->name('delete.user');
 
 });
 
